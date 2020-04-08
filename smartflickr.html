@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/helpers.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/thumbnails.css" />
+    <link rel="stylesheet" href="css/homepage.css" />
+    <link rel="stylesheet" href="css/smartstore.css" />
+    <title>Find Images</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Smart Homes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="smartstore.html">Store Locator</a>
+                    <a class="nav-item nav-link active" href="smartflickr.html">Flickr Gallery<span
+                            class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#"></a>
+                </div>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <a class="nav-item nav-link" href="#">About</a>
+                <a class="nav-item nav-link" href="#">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="island">
+        <h2>Flickr Gallery Search</h2>
+        <form class="js-form-search form-search" action="/search" method="get" role="search">
+            <label for="query">Search:</label>
+            <input type="search" name="query" id="query" placeholder="Search" required />
+            <input type="submit" value="Search" />
+        </form>
+    </header>
+
+    <div class="island">
+        <div class="js-gallery gallery">
+            <img src="" class="js-gallery__image" />
+            <button class="js-gallery__arrow--left gallery__arrow gallery__arrow--left">
+                <span class="visually-hidden">Previous photo</span>
+            </button>
+            <button class="js-gallery__arrow--right gallery__arrow gallery__arrow--right">
+                <span class="visually-hidden">Next photo</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="island thumbnails">
+        <ul class="js-thumbnails__list thumbnails__list"></ul>
+        <ol class="js-thumbnails__pager thumbnails__pager"></ol>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2020 Smart Homes, Inc.</p>
+        </div>
+    </footer>
+
+    <script src="js/utility.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/flickr.js"></script>
+    <script src="js/main.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmkNnYAbtbRGra4VMIF4MPRs6Xi1NAWNw"></script>
+</body>
+
+</html>
