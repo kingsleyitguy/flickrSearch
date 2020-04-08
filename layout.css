@@ -1,0 +1,28 @@
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.island {
+  display: block;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #060c10;
+  color: #ffffff;
+}
+
+h2 {
+  display: block;
+  color: #fcb720;
+  text-align: center;
+  padding-top: 10px;
+}
+
+a {
+  color: #ffffff;
+}
