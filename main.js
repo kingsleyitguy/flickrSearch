@@ -2,7 +2,7 @@
   "use strict";
 
   var gallery;
-  var lastSearch = "London";
+  var lastSearch;
 
   function searchPhotos(text, page) {
     if (text.length === 0) {
@@ -87,7 +87,7 @@
     }
   }
 
-  function showPhotos(data) {
+  function showPhotos(data, lastSearch) {
     createPager(document.getElementsByClassName("js-thumbnails__pager")[0], {
       query: lastSearch,
       currentPage: data.photos.page,
@@ -101,6 +101,12 @@
     gallery.createThumbnailsGallery(
       document.getElementsByClassName("js-thumbnails__list")[0]
     );
+
+    if (localStorage.getItem("saveSearch")) {
+      lastSearch = localStorage.getItem("saveSearch");
+    } else {
+      lastSearch = document.getElementById("query").value;
+    }
   }
 
   if (localStorage.getItem("saveSearch")) init(true);
@@ -117,12 +123,6 @@
         }
 
         localStorage.setItem("saveSearch", lastSearch);
-
-        if (localStorage.getItem("saveSearch")) {
-          lastSearch = localStorage.getItem("saveSearch");
-        } else {
-          lastSearch = document.getElementById("query").value;
-        }
       });
 
     var leftArrow = document.getElementsByClassName(
@@ -161,19 +161,7 @@
           page = event.target.getElementsByClassName("js-page-number")[0]
             .textContent;
         }
-
-        // Avoid reloading the same page
-        if (
-          page &&
-          page !==
-            currentLink.getElementsByClassName("js-page-number")[0].textContent
-        ) {
-          searchPhotos(lastSearch, page);
-        }
       });
-
-    // Kickstart the page
-    searchPhotos(lastSearch, 1);
   }
 
   window.Website = Utility.extend(window.Website || {}, {
@@ -183,5 +171,3 @@
     },
   });
 })(document, window);
-
-Website.Homepage.init();
